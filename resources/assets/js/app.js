@@ -6,11 +6,9 @@ import routes from './rutas';
 Vue.router = new VueRouter({ routes: routes});
 let AppLayout= require('./components/ExampleComponent');//Vista Suprema
 //ELEMENT UI.
-import ElementUI from 'element-ui'
-import lang from 'element-ui/lib/locale/lang/es'
-import locale from 'element-ui/lib/locale'
-import 'element-ui/lib/theme-default/index.css'
-import './assets/icon.css'
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import esLocale from 'element-ui/lib/locale/lang/es'
 //Axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -18,8 +16,8 @@ import VueAxios from 'vue-axios'
 import VueAuth from '@websanova/vue-auth'
  
 Vue.use(VueAxios, axios)
-Vue.use(ElementUI);
-locale.use(lang)
+Vue.use(Element);
+Vue.use(esLocale)
 
 Vue.use(VueAuth, {
    auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
