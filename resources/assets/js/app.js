@@ -16,8 +16,8 @@ import VueAxios from 'vue-axios'
 import VueAuth from '@websanova/vue-auth'
  
 Vue.use(VueAxios, axios)
-Vue.use(Element);
-Vue.use(esLocale)
+Vue.use(Element, {locale: esLocale})
+
 
 Vue.use(VueAuth, {
    auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),

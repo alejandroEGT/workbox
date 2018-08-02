@@ -8,6 +8,8 @@ import Home from "./components/Home/Home";
 import Index from "./components/Home/Index";
 import Chat from "./components/Home/chat";
 
+import Proyecto from "./components/Home/proyecto"
+
 let routes = [
 {
     path: '/',
@@ -33,6 +35,7 @@ let routes = [
     children: [
         { path: '/index', component: Index, name: 'Index' },
         { path: '/chat', component: Chat, name: 'Chat' },
+        { path: '/proyecto/:id', component: Proyecto, name: 'Proyecto' },
     ]
 },
 {
