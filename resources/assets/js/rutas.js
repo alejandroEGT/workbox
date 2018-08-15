@@ -7,8 +7,9 @@ import Master from "./components/master";
 import Home from "./components/Home/Home";
 import Index from "./components/Home/Index";
 import Chat from "./components/Home/chat";
-
+import Cal_tarea from "./components/Home/calendario_tarea.vue"
 import Proyecto from "./components/Home/proyecto"
+import Tarea from "./components/Home/tarea"
 
 let routes = [
 {
@@ -36,6 +37,8 @@ let routes = [
         { path: '/index', component: Index, name: 'Index' },
         { path: '/chat', component: Chat, name: 'Chat' },
         { path: '/proyecto/:id', component: Proyecto, name: 'Proyecto' },
+        { path: '/proyecto/tarea/:id_proyecto/:id_tarea', component: Tarea, name: 'Tarea' },
+        { path: '/proyecto/calendario_tarea/:id_proyecto', component: Cal_tarea, name: 'Calendario_tarea' },
     ]
 },
 {

@@ -101,18 +101,46 @@ class tareaController extends Controller
     }
     public function traer_tareas_by_proyecto($id_proyecto)
     {
-        $t = Tarea::join('estado_tarea as et','et.id','tarea.estado')
+        $t = Tarea::select([
+            'tarea.id', 'tarea.nombre', 'tarea.fecha_inicio', 'tarea.fecha_fin', 'tarea.horas_estimadas', 'et.estado'
+        ])
+        ->join('estado_tarea as et','et.id','tarea.estado')
         ->where([
             'id_user'=> Auth::user()->id,
             'id_proyecto'=> $id_proyecto
         ])->get();
+
+
+        $c = Tarea::select([
+            'tarea.id', 'tarea.nombre as title', 'tarea.fecha_inicio as start', 'tarea.fecha_fin as end', 'tarea.horas_estimadas', 'et.estado'
+        ])
+        ->join('estado_tarea as et','et.id','tarea.estado')
+        ->where([
+            'id_user'=> Auth::user()->id,
+            'id_proyecto'=> $id_proyecto
+        ])->get();
+
+
         if (count($t)>0) {
             return [
                 'tareas' => $t,
-                'estado' => 'success'
+                'estado' => 'success',
+                'calendario' => $c
             ];
         }
 
         return "failed";
+    }
+
+    public function traer_perfil_tareas_by_proyecto($id_proyecto, $id_tarea)
+    {
+        $perfil = DB::table('tarea as t')->select([
+                    't.nombre as tarea','t.fecha_inicio','t.fecha_fin','t.horas_estimadas','p.id as id_proyecto',
+                    'p.nombre as proyecto','p.cliente','es.estado'
+                ])
+                ->join('proyecto as p','t.id_proyecto','p.id')
+                ->join('estado_tarea as es','es.id','t.estado')->first();
+
+        return response()->json($perfil);
     }
 }

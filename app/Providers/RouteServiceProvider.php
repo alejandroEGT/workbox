@@ -70,4 +70,13 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
+
+    // public function requireRoutes($path)
+    // {
+    //     return collect(
+    //         Finder::create()->in(base_path($path))->name('*.php')
+    //         )->each(function($file){
+    //         require $file->getRealPath();
+    //     });
+    // }
 }

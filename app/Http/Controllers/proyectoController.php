@@ -6,6 +6,7 @@ use App\Colaborador;
 use App\Proyecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class proyectoController extends Controller
 {
@@ -69,8 +70,13 @@ class proyectoController extends Controller
      */
     public function show($id)
     {
-        return Proyecto::join('estado_proyecto as ep','ep.id','proyecto.estado')
+        $p = Proyecto::join('estado_proyecto as ep','ep.id','proyecto.estado')
         ->where('proyecto.id',$id)->first();
+        $estados = DB::table('estado_proyecto')->where('estado','!=', $p->estado)->get();
+        return [
+            'p' => $p,
+            'estados' => $estados
+        ];
     }
 
     /**
@@ -105,5 +111,15 @@ class proyectoController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function cambiar_estado_proyecto(Request $r)
+    {
+        $p = Proyecto::find($r->id_proyecto);
+        if ($p) {
+            $p->estado = $r->id_estado;
+            if ($p->save()) {
+                return "success";
+            }
+        }
     }
 }

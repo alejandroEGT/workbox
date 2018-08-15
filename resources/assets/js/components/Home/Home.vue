@@ -25,7 +25,7 @@
   <!-- <a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left">kkck</span></a> -->
   <ul class="navbar-primary-menu">
     <li>
-      <el-button style="margin-top:20px;" data-toggle="modal" data-target="#exampleModal" class="btn-block" icon="el-icon-edit" type="primary" round> Proyecto</el-button>
+      <el-button style="margin-top:20px;" data-toggle="modal" data-target="#example" class="btn-block" icon="el-icon-edit" type="primary" round> Proyecto</el-button>
     </li>
     <li>
       <a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Dashboard</span></a>
@@ -52,7 +52,7 @@
 
 
   <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

@@ -14,6 +14,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 //jwt
 import VueAuth from '@websanova/vue-auth'
+
+import Autocomplete from 'vue2-autocomplete-js'
  
 Vue.use(VueAxios, axios)
 Vue.use(Element, {locale: esLocale})
